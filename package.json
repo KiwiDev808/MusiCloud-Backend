@@ -1,0 +1,56 @@
+{
+  "name": "musicloud-backend",
+  "version": "1.0.0",
+  "description": "Backend do app MusiCloud",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build && node --inspect ./build/src/app/server.js",
+    "dev": "clear && ts-node-dev ./src/app/server.ts",
+    "build": "clear && echo \"Transpiling files...\" && tsc && echo \"Done!\" ",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KiwiDev808/MusiCloud-Backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KiwiDev808/MusiCloud-Backend/issues"
+  },
+  "homepage": "https://github.com/KiwiDev808/MusiCloud-Backend#readme",
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.10",
+    "@types/express": "^4.17.12",
+    "@types/jest": "^26.0.23",
+    "@types/jsonwebtoken": "^8.5.3",
+    "@types/node": "^16.0.0",
+    "@types/uuid": "^8.3.1",
+    "@typescript-eslint/eslint-plugin": "^4.28.2",
+    "@typescript-eslint/parser": "^4.28.2",
+    "eslint": "^7.30.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^27.0.6",
+    "prettier": "^2.3.2",
+    "ts-jest": "^27.0.3",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.95.6",
+    "mysql": "^2.18.1",
+    "uuid": "^8.3.2",
+    "zod": "^3.4.2"
+  }
+}
