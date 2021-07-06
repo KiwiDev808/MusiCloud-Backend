@@ -4,6 +4,7 @@
   "description": "Backend do app MusiCloud",
   "main": "index.js",
   "scripts": {
+    "migrations": "npx knex migrate:latest",
     "start": "npm run build && node --inspect ./build/src/app/server.js",
     "dev": "clear && ts-node-dev ./src/app/server.ts",
     "build": "clear && echo \"Transpiling files...\" && tsc && echo \"Done!\" ",
@@ -24,6 +25,7 @@
     "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.10",
     "@types/express": "^4.17.12",
+    "@types/faker": "^5.5.7",
     "@types/jest": "^26.0.23",
     "@types/jsonwebtoken": "^8.5.3",
     "@types/node": "^16.0.0",
@@ -36,6 +38,7 @@
     "eslint-import-resolver-typescript": "^2.4.0",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-prettier": "^3.4.0",
+    "faker": "^5.5.3",
     "jest": "^27.0.6",
     "prettier": "^2.3.2",
     "ts-jest": "^27.0.3",

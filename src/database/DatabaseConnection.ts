@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import { default as knex, Knex } from 'knex';
-import { DB_HOST, DB_PASSWORD, DB_SCHEMA, DB_USER } from '../config';
+import { DB_HOST, DB_PASSWORD, DB_PORT, DB_SCHEMA, DB_USER } from '../config';
 
 dotenv.config();
 
@@ -12,7 +12,7 @@ export class DatabaseConnection {
       user: DB_USER,
       password: DB_PASSWORD,
       database: DB_SCHEMA,
-      port: 3306,
+      port: DB_PORT || 3306,
       multipleStatements: true,
     },
   });
