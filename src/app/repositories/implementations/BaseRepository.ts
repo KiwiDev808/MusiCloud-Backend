@@ -1,10 +1,16 @@
 import dotenv from 'dotenv';
 import { default as knex, Knex } from 'knex';
-import { DB_HOST, DB_PASSWORD, DB_PORT, DB_SCHEMA, DB_USER } from '../config';
+import {
+  DB_HOST,
+  DB_PASSWORD,
+  DB_PORT,
+  DB_SCHEMA,
+  DB_USER,
+} from '../../../config';
 
 dotenv.config();
 
-export class DatabaseConnection {
+export class BaseRepository {
   private static dbConnection: Knex;
   protected static connection(): Knex {
     if (!this.dbConnection) {
