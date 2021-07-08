@@ -1,3 +1,4 @@
+import { MysqlUsersRepository } from '../../../repositories/implementations/MysqlUserRepository';
 import { Authenticator } from '../../../services/Authenticator';
 import { HashManager } from '../../../services/HashManager';
 import { IdGenerator } from '../../../services/IdGenerator';
@@ -5,7 +6,7 @@ import { CreateUserController } from './CreateUserController';
 import { CreateUserUseCase } from './CreateUserUseCase';
 import { CreateUserValidator } from './CreateUserValidator';
 
-const UsersRepository = new UsersRepository();
+const mysqlUsersRepository = new MysqlUsersRepository();
 const createUserValidator = new CreateUserValidator();
 const idGenerator = new IdGenerator();
 const hashManager = new HashManager();

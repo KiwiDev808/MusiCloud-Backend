@@ -11,7 +11,7 @@ import {
 dotenv.config();
 
 export class BaseRepository {
-  private static dbConnection: Knex;
+  private static dbConnection: Knex | null;
   protected static connection(): Knex {
     if (!this.dbConnection) {
       this.dbConnection = knex({
@@ -33,6 +33,7 @@ export class BaseRepository {
   protected static async destroy(): Promise<void> {
     if (this.dbConnection) {
       await this.dbConnection.destroy();
+      this.dbConnection = null;
     }
     return;
   }

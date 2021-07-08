@@ -1,26 +1,18 @@
-import { NextFunction, Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { CreateUserUseCase } from './CreateUserUseCase';
 
 export class CreateUserController {
   constructor(private CreateUserUseCase: CreateUserUseCase) {}
-  async handle(
-    req: Request,
-    res: Response,
-    next: NextFunction,
-  ): Promise<Response | void> {
+  async handle(req: Request, res: Response): Promise<Response | void> {
     const { name, email, password, role } = req.body;
 
-    try {
-      const response = await this.CreateUserUseCase.execute({
-        name,
-        email,
-        password,
-        role,
-      });
+    const response = await this.CreateUserUseCase.execute({
+      name,
+      email,
+      password,
+      role,
+    });
 
-      return res.status(201).send(response);
-    } catch (err) {
-      next(err);
-    }
+    return res.status(201).send(response);
   }
 }

@@ -1,10 +1,11 @@
+import { MysqlUsersRepository } from '../../../repositories/implementations/MysqlUserRepository';
 import { Authenticator } from '../../../services/Authenticator';
 import { HashManager } from '../../../services/HashManager';
 import { AuthenticateUserController } from './AuthenticateUserController';
 import { AuthenticateUserUseCase } from './AuthenticateUserUseCase';
 import { AuthenticateUserValidator } from './AuthenticateUserValidator';
 
-const UsersRepository = new UsersRepository();
+const mysqlUsersRepository = new MysqlUsersRepository();
 const authenticateUserValidator = new AuthenticateUserValidator();
 const hashManager = new HashManager();
 const authenticator = new Authenticator();

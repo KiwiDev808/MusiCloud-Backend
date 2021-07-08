@@ -39,7 +39,7 @@ export class CreateUserUseCase {
     await this.usersRepository.destroy();
 
     const token = this.authenticator.generateToken({
-      id: user.id,
+      id: id,
       role: user.role,
     });
 

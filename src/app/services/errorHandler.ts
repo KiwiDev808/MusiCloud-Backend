@@ -12,9 +12,17 @@ export const errorHandler = (
     response.status(error.code).send({ error: error.message });
     return;
   } else if (error instanceof ZodError) {
-    const message = error.issues[0].message;
-    const path = error.issues[0].path[0];
-    response.status(406).send({ error: `${path}: ${message}` });
+    const issues = error.issues.map(issue => {
+      return {
+        field: issue.path,
+        message: issue.message,
+      };
+    });
+
+    response.status(406).send({ error: issues });
+    return;
+  } else if (error instanceof SyntaxError) {
+    response.status(400).send({ message: error.message });
     return;
   }
   response.status(500).send({ message: 'something went bad' });
