@@ -1,21 +1,16 @@
 // Update with your config settings.
-import {
-  DB_HOST,
-  DB_PASSWORD,
-  DB_PORT,
-  DB_SCHEMA,
-  DB_USER,
-} from './src/config';
+import dotenv from 'dotenv';
+dotenv.config();
 
 module.exports = {
   development: {
     client: 'mysql',
     connection: {
-      host: DB_HOST,
-      user: DB_USER,
-      password: DB_PASSWORD,
-      database: DB_SCHEMA,
-      port: DB_PORT || 3306,
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_SCHEMA,
+      port: process.env.DB_PORT || 3306,
       multipleStatements: true,
     },
     migrations: {
@@ -30,11 +25,11 @@ module.exports = {
   production: {
     client: 'mysql',
     connection: {
-      host: DB_HOST,
-      user: DB_USER,
-      password: DB_PASSWORD,
-      database: DB_SCHEMA,
-      port: DB_PORT || 3306,
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_SCHEMA,
+      port: process.env.DB_PORT || 3306,
       multipleStatements: true,
     },
   },

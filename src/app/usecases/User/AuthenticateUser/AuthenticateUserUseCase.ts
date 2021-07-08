@@ -36,10 +36,10 @@ export class AuthenticateUserUseCase {
       throw APIError.wrongParams('Incorrect password');
     }
 
-    const user = new User(userExist, userExist.id);
+    const user = new User(userExist, userExist.getId());
 
     const token = this.authenticator.generateToken({
-      id: user.id,
+      id: user.getId(),
       role: user.role,
     });
 

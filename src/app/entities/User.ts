@@ -8,7 +8,11 @@ export class User {
   public password!: string;
   public role!: USER_ROLES;
 
-  constructor(props: Omit<User, 'id'>, id: string) {
+  public getId() {
+    return this.id;
+  }
+
+  constructor(props: Omit<User, 'id' | 'getId'>, id: string) {
     Object.assign(this, props);
 
     this.id = id;
