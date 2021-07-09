@@ -8,7 +8,8 @@
     "start": "npm run build && node --inspect ./build/src/app/server.js",
     "dev": "clear && ts-node-dev ./src/app/server.ts",
     "build": "clear && echo \"Transpiling files...\" && tsc && echo \"Done!\" ",
-    "test": "jest"
+    "test": "jest",
+    "deploy": "git add . && git commit -m Heroku && git push heroku master"
   },
   "repository": {
     "type": "git",
