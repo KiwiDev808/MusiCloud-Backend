@@ -2,7 +2,8 @@
   "name": "musicloud-backend",
   "version": "1.0.0",
   "engines": {
-    "node": "15.x"
+    "node": "15.x",
+    "yarn": "1.x"
   },
   "description": "Backend do app MusiCloud",
   "main": "index.js",
