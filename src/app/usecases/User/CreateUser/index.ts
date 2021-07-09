@@ -1,4 +1,4 @@
-import { MysqlUsersRepository } from '../../../repositories/implementations/MysqlUserRepository';
+import { MysqlUsersRepository } from '../../../repositories/implementations/MysqlUsersRepository';
 import { Authenticator } from '../../../services/Authenticator';
 import { HashManager } from '../../../services/HashManager';
 import { IdGenerator } from '../../../services/IdGenerator';

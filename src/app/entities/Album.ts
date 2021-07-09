@@ -4,7 +4,11 @@ export class Album {
   public name!: string;
   public user_id!: string;
 
-  constructor(props: Omit<Album, 'id'>, id: string) {
+  public getId() {
+    return this.id;
+  }
+
+  constructor(props: Omit<Album, 'id' | 'getId'>, id: string) {
     Object.assign(this, props);
 
     this.id = id;

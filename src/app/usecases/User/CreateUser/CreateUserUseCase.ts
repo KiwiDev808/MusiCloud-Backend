@@ -25,10 +25,13 @@ export class CreateUserUseCase {
     const validData: ICreateUserValidatedDataDTO =
       this.validator.validate(data);
 
-    const emailExist = await this.usersRepository.findByEmail(validData.email);
+    const alreadyRegistered = await this.usersRepository.findByEmailOrNickname(
+      validData.email,
+      validData.nickname,
+    );
 
-    if (emailExist) {
-      throw APIError.badRequest('Email already registered');
+    if (alreadyRegistered) {
+      throw APIError.badRequest('Email or nickname already registered');
     }
 
     const id = this.idGenerator.generate();
@@ -36,10 +39,9 @@ export class CreateUserUseCase {
 
     const user = new User({ ...validData, password: passwordHash }, id);
     await this.usersRepository.save(user);
-    await this.usersRepository.destroy();
 
     const token = this.authenticator.generateToken({
-      id: user.getId(),
+      id: user.id,
       role: user.role,
     });
 

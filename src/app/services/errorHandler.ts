@@ -8,22 +8,20 @@ export const errorHandler = (
   response: Response,
   next: NextFunction,
 ) => {
+  console.log(error);
   if (error instanceof APIError) {
-    response.status(error.code).send({ error: error.message });
+    response.status(error.code).send({ message: error.message });
     return;
   } else if (error instanceof ZodError) {
-    const issues = error.issues.map(issue => {
-      return {
-        field: issue.path,
-        message: issue.message,
-      };
-    });
+    const issues = error.issues;
 
-    response.status(406).send({ error: issues });
+    response
+      .status(406)
+      .send({ message: `${issues[0].path}: ${issues[0].message}` });
     return;
   } else if (error instanceof SyntaxError) {
     response.status(400).send({ message: error.message });
     return;
   }
-  response.status(500).send({ message: 'something went bad' });
+  response.status(500).send({ message: 'Internal Server Error' });
 };

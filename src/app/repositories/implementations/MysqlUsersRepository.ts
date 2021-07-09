@@ -12,7 +12,7 @@ export class MysqlUsersRepository
     super();
   }
 
-  async find(id: string): Promise<User> {
+  async findById(id: string): Promise<User> {
     const result: Array<User> = await this.userTable().where({
       id,
     });
@@ -23,6 +23,24 @@ export class MysqlUsersRepository
     const result: Array<User> = await this.userTable().where({
       email,
     });
+    return result[0];
+  }
+
+  async findByNickname(nickname: string): Promise<User> {
+    const result: Array<User> = await this.userTable().where({
+      nickname,
+    });
+    return result[0];
+  }
+
+  async findByEmailOrNickname(email: string, nickname: string): Promise<User> {
+    const result: Array<User> = await this.userTable()
+      .where({
+        email,
+      })
+      .orWhere({
+        nickname,
+      });
     return result[0];
   }
 

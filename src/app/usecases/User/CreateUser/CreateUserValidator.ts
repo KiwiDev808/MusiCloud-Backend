@@ -9,6 +9,9 @@ export class CreateUserValidator {
   validate(data: ICreateUserRequestDTO): ICreateUserValidatedDataDTO {
     const validator = z.object({
       name: z.string().min(2, { message: 'Must be 2 or more characters long' }),
+      nickname: z
+        .string()
+        .min(2, { message: 'Must be 2 or more characters long' }),
       email: z.string().email({ message: 'Invalid email address.' }),
       password: z
         .string()
