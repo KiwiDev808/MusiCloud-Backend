@@ -6,11 +6,12 @@
     "yarn": "1.x"
   },
   "description": "Backend do app MusiCloud",
-  "main": "index.js",
+  "main": "server.ts",
   "scripts": {
     "migrations": "npx knex migrate:latest",
-    "start": "ts-node ./src/app/server.ts",
+    "start": "node ./dist/src/app/server.js",
     "dev": "clear && ts-node-dev ./src/app/server.ts",
+    "build": "clear && echo \"Transpiling files...\" && tsc && echo \"Done!\" ",
     "test": "jest",
     "deploy": "git add . && git commit -m Heroku && git push heroku main"
   },
