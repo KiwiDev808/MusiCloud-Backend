@@ -1,4 +1,4 @@
-import { Music } from '../../../entities/Music';
+import { MusicDetails } from '../../../types/MusicDTO';
 
 export interface IFindMusicByIdRequestDTO {
   token: any;
@@ -12,5 +12,5 @@ export interface IFindMusicByIdValidatedDataDTO {
 
 export interface IFindMusicByIdResponseDTO {
   message: string;
-  music: Music;
+  musicDetails: MusicDetails;
 }
