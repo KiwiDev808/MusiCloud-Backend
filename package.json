@@ -11,7 +11,7 @@
     "migrations": "npx knex migrate:latest",
     "start": "node ./dist/src/app/server.js",
     "dev": "clear && ts-node-dev ./src/app/server.ts",
-    "build": "clear && echo \"Transpiling files...\" && tsc && echo \"Done!\" ",
+    "build": "tsc",
     "test": "jest",
     "deploy": "git add . && git commit -m Heroku && git push heroku main"
   },
@@ -47,7 +47,8 @@
     "jest": "^27.0.6",
     "prettier": "^2.3.2",
     "ts-jest": "^27.0.3",
-    "ts-node-dev": "^1.1.8"
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.3.5"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -58,8 +59,6 @@
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.95.6",
     "mysql": "^2.18.1",
-    "ts-node": "^10.1.0",
-    "typescript": "^4.3.5",
     "uuid": "^8.3.2",
     "zod": "^3.4.2"
   }
