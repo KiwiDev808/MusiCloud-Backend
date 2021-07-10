@@ -9,9 +9,8 @@
   "main": "index.js",
   "scripts": {
     "migrations": "npx knex migrate:latest",
-    "start": "npm run build && node --inspect ./build/src/app/server.js",
+    "start": "ts-node ./src/app/server.ts",
     "dev": "clear && ts-node-dev ./src/app/server.ts",
-    "build": "clear && echo \"Transpiling files...\" && tsc && echo \"Done!\" ",
     "test": "jest",
     "deploy": "git add . && git commit -m Heroku && git push heroku main"
   },
@@ -58,6 +57,7 @@
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.95.6",
     "mysql": "^2.18.1",
+    "ts-node": "^10.1.0",
     "typescript": "^4.3.5",
     "uuid": "^8.3.2",
     "zod": "^3.4.2"
