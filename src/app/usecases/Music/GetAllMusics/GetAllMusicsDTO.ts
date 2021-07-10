@@ -1,4 +1,4 @@
-import { Music } from '../../../entities/Music';
+import { MusicWithAuthor } from '../../../types/MusicDTO';
 
 export interface IGetAllMusicsRequestDTO {
   token: any;
@@ -10,5 +10,5 @@ export interface IGetAllMusicsValidatedDataDTO {
 
 export interface IGetAllMusicsResponseDTO {
   message: string;
-  musics: Music[];
+  musics: MusicWithAuthor[];
 }
